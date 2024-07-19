@@ -391,6 +391,7 @@ footer {
     position: relative;
     right: 20px;
     top: 40px;
+    left: 600px;
     display: flex;
 }
 .social-media > h1{
@@ -580,7 +581,7 @@ footer {
     .social-media{
         width: 350px;
         top: 700px;
- 
+        left: -20px;
     }
     .social-media > h1{
         display: none;
