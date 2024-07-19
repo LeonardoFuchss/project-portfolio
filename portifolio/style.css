@@ -13,7 +13,7 @@
 }
 
 .headerPrincipal {
-    height: 500px;
+    height: 550px;
     background: url(imagens/pexels-joyston-judah-331625-933054.jpg);
     background-position: 100%;
     background-size: cover;
@@ -29,7 +29,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: 500px;
+    height: 550px;
 }
 .imgLeo1{
     border-radius: 50%;
@@ -83,7 +83,7 @@ nav > ul > li:hover {
 nav > ul > li {
     display: inline-block;
     right: 10px;
-    border: 3px groove rgb(25, 121, 223);
+   
     padding: 7px;
     padding-left: 15px;
     padding-right: 15px;
@@ -95,11 +95,25 @@ nav > ul > li > a{
     color: white;
     font-size: 17px;
 }
+.button-contact{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    position: absolute;
+    margin-top: 420px;
+}
 #contact{
-    padding: 15px;
-    border: 3px solid rgb(0, 94, 255);
+    font-family: var(--font-nunito);
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    border: 2px solid rgba(0, 94, 255, 0.299);
     border-radius: 10px;
-    background-color: rgb(0, 66, 124);
+    background-color: #1c5ad56b;
 }
 #contact:hover{
     background-color: rgb(0, 28, 56);
@@ -198,10 +212,10 @@ main > .folha1{
     color: aliceblue;
 }
 .content-container{
-    width: 1000px;
+    width: 100%;
     height: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
     display: flex;
 }
@@ -426,7 +440,7 @@ footer {
 
 /* responsividade 1 */
 
-@media (min-width: 300px) and (max-width: 370px) {
+@media screen and (max-width: 1020px) {
     nav > ul {
     text-align: center;
     width: 350px;
@@ -440,14 +454,7 @@ footer {
         padding-left: 10px;
         padding-right: 10px;
         margin-right: 5px;
-        margin-left: 7px;
-    }
-    #contact{
-        position: absolute;
-        padding: 5px;
-        width: 100px;
-        margin-top: 430px;
-        margin-right: 112px;
+        margin-left: 7;
     }
     main > .folha1{
         height: 1000px;
@@ -501,9 +508,8 @@ footer {
     .content-container{
         width: 400px;
         height: 400px;
-        margin-left: -20px;
-        margin-right: 0px;
         display: flow-root;
+        margin-left: -20px;
         margin-top: 20px;
     }
     .card {
@@ -561,24 +567,33 @@ footer {
         margin-left: 10%;
     }
     .container-contact{
-        width: 350px;
+        width: 500px;
         height: 1100px;
     }
     .social-media{
-        width: 350px;
+        width: 470px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         top: 700px;
     }
     .social-media > h1{
         font-size: 30px;
-        text-align: start;
+        margin-top: -350px;
     }
     .social img {
         width: 80px;
         height: 80px;
-        margin-left: 20px;
+        margin-top: -50px;
     }
     .main-contact{
         height: 1200px;
+    }
+    .social a{
+    top: 40px;
+    left: -3px;
+    right: 10px;
+    font-size: 20px;
     }
 }
 
@@ -588,7 +603,7 @@ footer {
 
 
 
-@media (min-width: 371px) and (max-width: 390px) {
+/* @media (min-width: 371px) and (max-width: 390px) {
     nav > ul {
     text-align: center;
     width: 550px;
@@ -607,6 +622,8 @@ footer {
     }
     #contact{
     padding: 5px;
+    top: 400px;
+    position: absolute;
     }
     main > .folha1{
         height: 1000px;
