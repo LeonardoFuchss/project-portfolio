@@ -1,12 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Denk+One&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
     --font-permanent-marker: 'Permanent Marker', cursive;
     --font-nunito: 'Nunito', sans-serif;
-   
+    --font-denk: 'Denk One', sans-serif;
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -56,14 +58,13 @@
     z-index: 2;
 }
 .container > h1 {
-    font-family: var(--rubik-font);
     font-size: 60px;
     text-shadow: 0.5px 1px 0.5px rgb(255, 255, 255);
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: bold;
     color: rgb(0, 141, 217);
-    font-family: var(--font-nunito);
+    font-family: var(--font-denk);
 }
 .container > h2{
     font-family: var(--font-nunito);
@@ -258,67 +259,187 @@ footer {
 .main-port{
     padding-top: 1px;
     width: 100%;
-    height: 700px;
+    height: 2800px;
     background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 57, 121));
 }
 .main-port > h1 {
     width: 600px;
     text-align: center;
     margin-top: 50px;
-    margin-left: 5%;
+    left: 50%;
+    transform: translate(-50%);
     margin-bottom: 90px;
-    font-size: 70px;
+    font-size: 75px;
     position: relative;
-    font-family: var(--font-nunito);
-    color: rgb(255, 255, 255);
-    text-shadow: 1px 1px 5px rgb(0, 18, 46);
+    font-family: var(--font-denk);
+    color: rgb(153, 196, 222);
+    text-shadow: 1px 2px 1px rgb(209, 209, 209);
+    opacity: 0; /* Inicialmente invisível */
+    animation: slideInFromLeft 1.8s ease forwards; /* Aplica a animação */
 }
-#titulo-proj::after{
+#titulo-proj::after {
     content: '';
     display: block;
-    width: 50%;
+    width: 40%; /* Tamanho inicial pequeno */
     height: 4px;
-    background-color: rgb(41, 132, 250);
+    background-image: linear-gradient(to right, rgb(0, 21, 73), rgb(41, 132, 250));
     position: absolute;
-    left: 12%;
+    left: 11%;
+    animation: increaseWidth 3.5s ease forwards;
+    
 }
-.container-projetos{
-    width: 1600px;
-    height: 400px;
+
+@keyframes increaseWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 50%;
+    }
+}
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100vw); /* Começa fora da tela à esquerda */
+        opacity: 0; /* Transparente no início */
+    }
+    to {
+        transform: translateX(-120%); /* Termina no centro */
+        opacity: 1; /* Visível no final */
+    }
+}
+
+@keyframes slideInFromLeftBox {
+    from {
+        transform: translateX(-100vw); /* Começa fora da tela à esquerda */
+        opacity: 0; /* Transparente no início */
+    }
+    to {
+        transform: translateX(-50%); /* Termina no centro */
+        opacity: 1; /* Visível no final */
+    }
+}
+
+.box-projetos {
+    width: 1300px;
+    height: 2500px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    gap: 20px;
+    font-family: var(--font-rubik);
+    position: relative;
 }
-.box-proj{
-    width: 300px;
-    height: 350px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 20px;
-    cursor: pointer;
-    box-shadow: 1px 1px 10px 3px rgb(25, 28, 30);
-    color: #2164ea;
+
+.projeto {
+    position: relative;
+    width: 1000px;
+    height: 700px;
+    left: 50%;
+    transform: translate(-50%);
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 140px;
+    opacity: 0; /* Inicialmente invisível */
+}
+
+/* Classe para aplicar a animação */
+.projeto.animate {
+    animation: slideInFromLeftBox 3.4s ease forwards;
+}
+.titulo-projeto{
+    font-family: var(--font-denk);
+    position: absolute;
+    left: 50%;
+    transform: translate(-30%);
+    color: rgb(116, 160, 243);
+}
+.descricao-projeto{
+    position: absolute;
+    margin-top: 60px;
+    font-size: 18px;
+    text-align: justify;
+    color: white;
     font-family: var(--font-nunito);
-   
 }
-#box1{
-    background-position: 100%;
-    background-size: cover;
-}
-#box2{
-    background-position: 100%;
-    background-size: cover;
-}
-.box-proj:hover {
-    animation: floating 2s ease-in-out infinite;
-}
-.box-proj > img{
-    width: 300px;
-    height: 350px;
-    object-fit: contain;
+.content{
+    height: 520px;
+    width: 1035px;
     border-radius: 20px;
+    overflow: hidden;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 190px;
+    position: absolute;
+    box-shadow: 2px 2px 10px 2px rgb(112, 104, 108);
 }
+.navigation{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%); /* para centralizar */
+}
+.navigation label{
+    width: 70px;
+    height: 17px;
+    border: 3px solid rgb(0, 0, 0);
+    margin: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-image 3.8s;
+}
+.navigation label:hover{
+    background-image: linear-gradient(to right, black, rgb(3, 80, 156));
+}
+input{
+    display: none;
+}
+.slides{
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+.slide{
+    width: 20%; /* tamanho da div da imagem */
+    transition: .6s;
+}
+.slide img{
+    width: 100%; /* imagem ocupa 100% da div */
+    height: 100%;
+    object-fit: cover;
+}
+#slide1-1:checked ~ .s1{ /* s1 ira se movimentar a esquerda para cada input selecionado (-20%, -40%, -60%...) */
+    margin-left: 0;
+}
+#slide1-2:checked ~ .s1{
+    margin-left: -20%;
+}
+#slide1-3:checked ~ .s1{
+    margin-left: -40%;
+}
+#slide1-4:checked ~ .s1{
+    margin-left: -60%;
+}
+#slide1-5:checked ~ .s1{
+    margin-left: -80%;
+}
+#slide2-1:checked ~ .s2{ /* s1 ira se movimentar a esquerda para cada input selecionado (-20%, -40%, -60%...) */
+    margin-left: 0;
+}
+#slide2-2:checked ~ .s2{
+    margin-left: -20%;
+}
+#slide2-3:checked ~ .s2{
+    margin-left: -40%;
+}
+#slide3-1:checked ~ .s3{ /* s1 ira se movimentar a esquerda para cada input selecionado (-20%, -40%, -60%...) */
+    margin-left: 0;
+}
+#slide3-2:checked ~ .s3{
+    margin-left: -20%;
+}
+#slide3-3:checked ~ .s3{
+    margin-left: -40%;
+}
+
 .mobile-menu{
     cursor: pointer;
     display: none;
@@ -352,6 +473,15 @@ footer {
     color: white;
     font-family: var(--font-nunito);
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -454,34 +584,252 @@ footer {
         width: 300px;
         font-size: 35px;
     }
-    .container-projetos{
+  
+   
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    nav > ul {
+    text-align: center;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    nav > ul > li {
+        right: 10px;
+        border: 3px groove rgb(25, 121, 223);
+        padding: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 5px;
+        margin-left: 7;
+    }
+    main > .folha1{
+        height: 1000px;
+    }
+    .container > h1 {
+        font-size: 40px;
+    }
+    .container-folha1{
+        width: 360px;
+        display: block;
+    }
+    .img-folha1 > img{
         width: 350px;
-        height: 350px;
+        height: 300px;
+    }
+    .skills{
+        width: 300px;
+        height: 150px;
+        left: 25px;
+        position: relative;
+        display: flex;
+        padding: 10px;
+        bottom: 10px;
+    }
+    .skills > div {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    .skills > div > img{
+        object-fit: cover;
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    .content-folha1 > p{
+        text-align: justify;
+        padding: 37px;
+    }
+    .content-folha1 > h1{
+        padding-top: 25px;
+        padding-left: 50px;
+    }
+    .container-folha2{
+        width: 350px;
+    }
+    .container-folha2 > h1 {
+        padding-left: 40px;
+    }
+    .container-folha2 > h2 {
+        padding-left: 60px;
+    }
+    .content-container{
+        width: 300px;
+        height: 400px;
         display: flow-root;
-        gap: 1px;
+        margin-left: -10px;
+        margin-top: 20px;
     }
-    .box-proj{
-        width: 300px;
-        height: 200px;
-        margin-bottom: 90px;
+    .card {
+        width: 250px;
+        height: 230px;
     }
-    .box-proj > img{
-        width: 300px;
-        height: 200px;
+    .card > h1 {
+        font-size: 16px;
     }
-    .content{
-        height: 320px;
-        display: none;
-        width: 335px;
-        border-radius: 20px;
-        overflow: hidden;
-        margin-top: -300px;
+    .card > p {
+        font-size: 14px;
+    }
+    .folha2{
+        width: 100%;
+        height: 1050px;
+    }
+    .main-port{
+        height: 1850px;
+    }
+    .main-port > h1 {
+        width: 350px;
+        text-align: center;
+        margin-top: 50px;
         left: 50%;
         transform: translate(-50%);
+        margin-bottom: 90px;
+        font-size: 50px;
+    }
+    @keyframes slideInFromLeft {
+        from {
+            transform: translateX(-100vw); /* Começa fora da tela à esquerda */
+            opacity: 0; /* Transparente no início */
+        }
+        to {
+            transform: translateX(-50%); /* Termina no centro */
+            opacity: 1; /* Visível no final */
+        }
+    }
+    .box-projetos{
+        width: 340px;
+        height: 300px;
+    }
+    .projeto {
+        position: relative;
+        width: 370px;
+        height: 300px;
+        left: 48%;
+        transform: translate(-50%);
+        display: block;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        opacity: 0; /* Inicialmente invisível */
+    }
+    .content{
+        height: 350px;
+        display: flex;
+        width: 350px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 80px;
+        left: 5px;
+        transform: translate(0);
         position: absolute;
-        box-shadow: 2px 2px 10px 2px rgb(72, 72, 72);
+        box-shadow: 0px 0px 0px 0 rgb(72, 72, 72);
         transition: 1s;
     }
+    /* Classe para aplicar a animação */
+    .projeto.animate {
+        animation: slideInFromLeftBox 3.4s ease forwards;
+        height: 500px;
+    }
+    .titulo-projeto{
+        font-family: var(--font-denk);
+        position: absolute;
+        width: 280px;
+        left: 25%;
+        padding-left: 15px;
+        transform: translate(-10%);
+        color: rgb(116, 160, 243);
+    }
+    .descricao-projeto{
+        position: absolute;
+        margin-top: 60px;
+        font-size: 12px;
+        text-align: justify;
+        color: white;
+        width: 350px;
+        padding-left: 5px;
+        font-family: var(--font-nunito);
+    }
+    .navigation label{
+        width: 40px;
+        border: 3px solid white;
+        margin-top: 150px;
+    }
+    .navigation label:hover{
+        background-image: linear-gradient(to right, black, rgb(3, 80, 156));
+    }
+    input{
+        display: none;
+    }
+    .slides{
+        display: inline-flex;
+        width: 400%;
+        height: 100%;
+    }
+    .projeto.animate{
+        width: 350px;
+    }
+    .slide{
+        width: 30%; /* tamanho da div da imagem */
+        transition: .6s;
+    }
+
+
+    #slide1-1:checked ~ .s1{ /* s1 ira se movimentar a esquerda para cada input selecionado (-20%, -40%, -60%...) */
+        margin-left: 0;
+    }
+    #slide1-2:checked ~ .s1{
+        margin-left: -25%;
+    }
+    #slide1-3:checked ~ .s1{
+        margin-left: -60%;
+    }
+    #slide1-4:checked ~ .s1{
+        margin-left: -90%;
+    }
+    #slide1-5:checked ~ .s1{
+        margin-left: -120%;
+    }
+
+
+    #slide2-1:checked ~ .s2{ /* s1 ira se movimentar a esquerda para cada input selecionado (-20%, -40%, -60%...) */
+        margin-left: 0px;
+    }
+    #slide2-2:checked ~ .s2{
+        margin-left: -30%;
+    }
+    #slide2-3:checked ~ .s2{
+        margin-left: -60%;
+    }
+
+
+    #slide3-1:checked ~ .s3{ /* s1 ira se movimentar a esquerda para cada input selecionado (-20%, -40%, -60%...) */
+        margin-left: 0;
+    }
+    #slide3-2:checked ~ .s3{
+        margin-left: -40%;
+        
+    }
+    .slide img{
+        width: 370px; /* imagem ocupa 100% da div */
+        height: 370px;
+        object-fit: contain;
+    }
+    #projeto3 h1{
+        width: 330px;
+        left: 15%;
+    }
+    #slides-japa{
+    width: 500%;
+    }
+ 
 }
 
 
@@ -490,40 +838,4 @@ footer {
 
 
 
-@media screen and (max-width: 360px) {
-  .container-contact{
-    width: 350px;
-  }
-  .social img{
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .social-media{
-    margin-left: 22px;
-    position: relative;
-    width: 340px;
-  }
-   
-  .social-media a{
-    top: 20px;
-    font-size: 15px;
-    right: 5px;
-    left: 6px;
-  }
-  .social-media h1{
-    text-align: center;
-    margin-left: -50px;
-  }
-  .container-folha2{
-    width: 350px;
-  }
-  .content-container{
-    margin-left: 0px;
-    width: 350px;
-  }
-  .social{
-    left: 3px;
-  }
-}
+
